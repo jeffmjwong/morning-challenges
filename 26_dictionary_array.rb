@@ -24,5 +24,27 @@
 #
 
 class Dictionary
-  # Your code here
+  attr_accessor :array
+  def initialize
+    @array = []
+  end
+
+  def add_word(word, definition)
+    word_array = [word, definition]
+    @array.push(word_array)
+  end
+
+  def lookup(word)
+    counter = 0
+    while counter < @array.length
+      if @array[counter][0] == word
+        return @array[counter][1]
+      end
+      counter += 1
+    end
+  end
+
+  def total_words
+    return @array.length
+  end
 end
